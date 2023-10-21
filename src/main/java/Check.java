@@ -11,7 +11,7 @@ public class Check {
             if (friendsCheck > 1) {
                 break;
             } else System.out.println("Укажите число и оно должно быть больше 1");
-            }
+        }
         return friendsCheck;
     }
 }
