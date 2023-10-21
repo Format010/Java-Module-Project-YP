@@ -4,30 +4,23 @@ public class Main {
 
         Calc calc = new Calc();
         Rub rub = new Rub();
+        Price price = new Price();
 
         Scanner sc = new Scanner(System.in);
         Check check = new Check();
-        int backFrCh = check.setCheck();
+        int backFrCh = check.readFriendsCount();
 
-        String prodName = "";
+        String prodName;
         String sumProdName;
-        double prodPrice = 0;
-        double sumProdPrice = 0;
+        double prodPrice;
+
         while (true) {
             System.out.println("Введите название товара: ");
             prodName = sc.nextLine();
             sumProdName = calc.setConcProdName(prodName);
 
-            do {
-                System.out.println("Введите цену на товар: ");
-                while (!sc.hasNextDouble()) {
-                    System.out.println("Введите корректное число в формате 0.00 либо 0");
-                    sc.next();
-                }
-                prodPrice = sc.nextDouble();
-                prodPrice = calc.setSumProdPrice(prodPrice);
-            } while (prodPrice < 0);
-            sc.nextLine(); // стираем остатки
+            prodPrice = price.setProdPrice();
+            prodPrice = calc.setSumProdPrice(prodPrice);
 
             System.out.println("Товар успешно добавлен!");
             System.out.println("Если хотите добавить еще один товар нажмите Enter. \nДля подсчета результата напишите Завершить");
